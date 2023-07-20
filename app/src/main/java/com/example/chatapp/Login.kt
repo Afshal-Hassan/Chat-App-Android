@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import com.example.chatapp.constants.AppConstants
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -29,9 +30,22 @@ class Login : AppCompatActivity() {
     }
 
 
+    override fun onResume() {
+        super.onResume();
+        AppConstants.RESUME_COUNT = AppConstants.RESUME_COUNT + 1;
+
+        if (AppConstants.RESUME_COUNT >= 2) {
+            AppConstants.RESUME_COUNT = 0;
+            finish();
+        } else {
+            onClickGoogleSignInButton();
+        }
+    }
+
+
     private fun onClickGoogleSignInButton() {
         val account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null) {
+        if (account != null) {
             navigateToDashboard();
         }
 
@@ -80,7 +94,7 @@ class Login : AppCompatActivity() {
     }
 
 
-    private fun navigateToDashboard() : Unit {
+    private fun navigateToDashboard(): Unit {
         val dashboardIntent = Intent(this, Dashboard::class.java);
         startActivity(dashboardIntent);
     }
