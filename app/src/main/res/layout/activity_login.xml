@@ -92,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
+                         android:clickable="true"
                         android:background="@drawable/sign_in_with_google_button"
                         android:orientation="horizontal">
 
@@ -99,14 +100,17 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:clickable="false"
                             android:layout_gravity="center"
                             android:layout_marginLeft="18dp"
-                            android:src="@drawable/google" />
+                            android:src="@drawable/google"
+                            />
 
 
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:clickable="false"
                             android:background="@android:color/transparent"
                             android:fontFamily="@font/productsansregular"
                             android:text="Sign in Google"
