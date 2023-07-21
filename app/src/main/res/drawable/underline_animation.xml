@@ -1,0 +1,41 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:color="#ACD613">
+
+    <item android:state_selected="true">
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/white" /> <!-- Set the color of the underline -->
+                </shape>
+            </item>
+
+
+            <item android:bottom="3dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/start_color" /> <!-- Set the color of the underline -->
+                </shape>
+            </item>
+
+
+        </layer-list>
+
+
+    </item>
+
+
+<!--    <item android:state_pressed="true"   >-->
+
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#426c" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/start_color" />
+        </shape>
+    </item>
+
+
+</selector>

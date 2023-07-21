@@ -61,10 +61,14 @@
 
 
         <TextView
+            android:id="@+id/chatHeaderButton"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:clickable="true"
+            android:padding="8dp"
+            android:background="@drawable/underline_animation"
             android:fontFamily="@font/productsansbold"
             android:text="Chats"
             android:textColor="@color/white"
@@ -72,11 +76,14 @@
 
 
         <TextView
+            android:id="@+id/callHeaderButton"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center"
-
+            android:clickable="true"
+            android:padding="8dp"
+            android:background="@drawable/underline_animation"
             android:fontFamily="@font/productsansbold"
             android:text="Calls"
             android:textColor="@color/white"
@@ -84,11 +91,14 @@
 
 
         <TextView
+            android:id="@+id/statusHeaderButton"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:gravity="center"
-
+            android:clickable="true"
+            android:padding="8dp"
+            android:background="@drawable/underline_animation"
             android:fontFamily="@font/productsansbold"
             android:text="Status"
             android:textColor="@color/white"
