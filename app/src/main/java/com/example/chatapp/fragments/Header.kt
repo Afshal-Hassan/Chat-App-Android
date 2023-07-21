@@ -1,6 +1,6 @@
 package com.example.chatapp.fragments
 
-import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,6 +35,16 @@ class Header : Fragment() {
             callHeaderButton.isSelected = false
             statusHeaderButton.isSelected = false
             chatHeaderButton.isSelected = true
+
+            val crossfadeDrawable = TransitionDrawable(
+                arrayOf(
+                    resources.getDrawable(R.drawable.ripple_effect),
+                    resources.getDrawable(R.drawable.underline_animation)
+                )
+            )
+            chatHeaderButton.background = crossfadeDrawable
+            crossfadeDrawable.startTransition(400)
+
         }
 
 
@@ -42,6 +52,15 @@ class Header : Fragment() {
             chatHeaderButton.isSelected = false
             statusHeaderButton.isSelected = false
             callHeaderButton.isSelected = true
+
+            val crossfadeDrawable = TransitionDrawable(
+                arrayOf(
+                    resources.getDrawable(R.drawable.ripple_effect),
+                    resources.getDrawable(R.drawable.underline_animation)
+                )
+            )
+            callHeaderButton.background = crossfadeDrawable
+            crossfadeDrawable.startTransition(400)
         }
 
 
@@ -49,6 +68,16 @@ class Header : Fragment() {
             chatHeaderButton.isSelected = false
             callHeaderButton.isSelected = false
             statusHeaderButton.isSelected = true
+
+            val crossfadeDrawable = TransitionDrawable(
+                arrayOf(
+                    resources.getDrawable(R.drawable.ripple_effect),
+                    resources.getDrawable(R.drawable.underline_animation)
+                )
+            )
+            statusHeaderButton.background = crossfadeDrawable
+            crossfadeDrawable.startTransition(400)
+
         }
     }
 
