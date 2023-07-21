@@ -17,18 +17,23 @@
         android:name="com.example.chatapp.fragments.Header"
         tools:layout="@layout/fragment_header" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/header2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight=".1"-->
-<!--        android:name="com.example.chatapp.fragments.Header"-->
-<!--        tools:layout="@layout/fragment_header" />-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:background="@color/white">
+         android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <fragment
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.example.chatapp.fragments.User"
+            tools:layout="@layout/fragment_user"/>
+
+
 
     </LinearLayout>
 
