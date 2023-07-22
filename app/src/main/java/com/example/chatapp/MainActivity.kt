@@ -32,5 +32,6 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToLogin(): Unit {
         val loginIntent = Intent(this, Login::class.java);
         startActivity(loginIntent);
+        finish();
     }
 }
