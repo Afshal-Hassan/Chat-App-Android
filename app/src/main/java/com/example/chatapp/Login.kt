@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.chatapp.constants.AppConstants
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -23,23 +24,11 @@ class Login : AppCompatActivity() {
     private lateinit var googleSignInOptions: GoogleSignInOptions;
     private lateinit var googleSignInClient: GoogleSignInClient;
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login);
         onClickGoogleSignInButton();
-    }
-
-
-    override fun onResume() {
-        super.onResume();
-        AppConstants.RESUME_COUNT = AppConstants.RESUME_COUNT + 1;
-
-        if (AppConstants.RESUME_COUNT >= 2) {
-            AppConstants.RESUME_COUNT = 0;
-            finish();
-        } else {
-            onClickGoogleSignInButton();
-        }
     }
 
 
@@ -85,6 +74,7 @@ class Login : AppCompatActivity() {
         try {
             completedTask.getResult(ApiException::class.java);
             navigateToDashboard();
+            finish()
             // Signed in successfully, you can now use the 'account' to access user information
             // For example: account.id, account.displayName, account.email, etc.
         } catch (e: ApiException) {
@@ -97,5 +87,6 @@ class Login : AppCompatActivity() {
     private fun navigateToDashboard(): Unit {
         val dashboardIntent = Intent(this, Dashboard::class.java);
         startActivity(dashboardIntent);
+        finish()
     }
 }
