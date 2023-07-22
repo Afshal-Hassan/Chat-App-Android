@@ -2,8 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:clickable="true"
     android:background="@drawable/user_ripple_effect"
+    android:clickable="true"
     android:paddingTop="30dp">
 
     <data>
@@ -31,8 +31,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:clickable="false"
                 android:layout_toLeftOf="@id/username"
+                android:clickable="false"
                 app:cardCornerRadius="105dp">
 
 
@@ -50,8 +50,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:orientation="vertical"
                 android:clickable="false"
+                android:orientation="vertical"
                 android:paddingTop="5dp">
 
 
@@ -59,8 +59,8 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="false"
                     android:layout_marginLeft="10dp"
+                    android:clickable="false"
                     android:fontFamily="@font/productsansregular"
                     android:gravity="center_vertical"
                     android:text="@{userViewModel.userData.name}"
@@ -73,9 +73,9 @@
                     android:id="@+id/activeStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="false"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="2dp"
+                    android:clickable="false"
                     android:fontFamily="@font/productsansregular"
                     android:gravity="center_vertical"
                     android:text="Active Now"
