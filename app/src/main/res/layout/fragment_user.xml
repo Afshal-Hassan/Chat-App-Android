@@ -1,75 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="30dp"
-    tools:context=".fragments.User">
+    android:clickable="true"
+    android:background="@drawable/user_ripple_effect"
+    android:paddingTop="30dp">
 
+    <data>
+
+        <variable
+            name="userViewModel"
+            type="com.example.chatapp.viewmodels.UserViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="19dp">
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_toLeftOf="@id/username"
-            app:cardCornerRadius="105dp">
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/pic" />
-
-
-        </androidx.cardview.widget.CardView>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragments.User">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            android:paddingTop="5dp">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:orientation="horizontal"
+            android:paddingLeft="19dp">
 
 
-            <TextView
-                android:id="@+id/username"
+            <androidx.cardview.widget.CardView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:clickable="false"
+                android:layout_toLeftOf="@id/username"
+                app:cardCornerRadius="105dp">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pic" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/productsansregular"
-                android:gravity="center_vertical"
-                android:text="Selina Gomez"
-                android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="16dp" />
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:clickable="false"
+                android:paddingTop="5dp">
 
 
-            <TextView
-                android:id="@+id/activeStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/productsansregular"
-                android:gravity="center_vertical"
-                android:text="Active Now"
-                android:textColor="@color/light_gray"
-                android:textSize="13dp" />
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center_vertical"
+                    android:text="@{userViewModel.userData.name}"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    android:textSize="16dp" />
+
+
+                <TextView
+                    android:id="@+id/activeStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/productsansregular"
+                    android:gravity="center_vertical"
+                    android:text="Active Now"
+                    android:textColor="@color/light_gray"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
 
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>
