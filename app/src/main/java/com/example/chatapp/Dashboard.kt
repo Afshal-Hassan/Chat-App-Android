@@ -7,7 +7,7 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.example.chatapp.factory.UserViewModelFactory
+ import com.example.chatapp.factory.UserViewModelFactory
 import com.example.chatapp.fragments.User
 import com.example.chatapp.permissions.ContactPermissions
 import com.example.chatapp.repos.UserRepo
@@ -27,7 +27,30 @@ class Dashboard : AppCompatActivity() {
 
 
         val contacts = contactService.getContactListOfUser(this, this)
-        userViewModel.refreshUserData()
+        userViewModel.userData.observe(this) { userList ->
+            // The observer will receive the list of UserData when it changes
+            userList?.let {
+                // Assuming `User.newInstance` creates a new User fragment instance
+                supportFragmentManager.beginTransaction().apply {
+                    val fragmentList = mutableListOf<User>()
+
+                    // Iterate through the userList and create a User fragment for each user
+                    for (user in it) {
+                        val userFragment = User.newInstance(user.name)
+                        fragmentList.add(userFragment)
+                    }
+
+                    // Add all the User fragments to the container
+                    for (i in fragmentList.indices) {
+                        add(R.id.user, fragmentList[i])
+                    }
+
+                    commit()
+                }
+            }
+        }
+
+
     }
 
 

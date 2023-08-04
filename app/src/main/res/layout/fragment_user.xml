@@ -9,8 +9,8 @@
     <data>
 
         <variable
-            name="userViewModel"
-            type="com.example.chatapp.viewmodels.UserViewModel" />
+            name="name"
+            type="String" />
     </data>
 
     <LinearLayout
@@ -63,7 +63,7 @@
                     android:clickable="false"
                     android:fontFamily="@font/productsansregular"
                     android:gravity="center_vertical"
-                    android:text="@{userViewModel.userData.name}"
+                    android:text="@{name}"
                     android:textColor="@color/black"
                     android:textFontWeight="600"
                     android:textSize="16dp" />

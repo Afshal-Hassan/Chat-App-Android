@@ -7,15 +7,15 @@ import com.example.chatapp.repos.UserRepo
 
 class UserViewModel(private val repository: UserRepo) : ViewModel() {
 
-    val userData: LiveData<UserData>
+    val userData: LiveData<List<UserData>>
         get() = repository.userData
 
     init {
-        repository.getUserData("Selina Gomez")
+        repository.getUserData()
     }
 
 
     fun refreshUserData() {
-        repository.getUserData("Tester tester");
+        repository.getUserData();
     }
 }
