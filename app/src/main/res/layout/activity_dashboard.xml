@@ -20,18 +20,14 @@
 
 
     <LinearLayout
+        android:id="@+id/userList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
          android:background="@color/white"
         android:orientation="vertical">
 
 
-        <fragment
-            android:id="@+id/user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="com.example.chatapp.fragments.User"
-            tools:layout="@layout/fragment_user"/>
+
 
 
 

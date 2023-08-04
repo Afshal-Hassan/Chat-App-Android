@@ -31,7 +31,7 @@ class Dashboard : AppCompatActivity() {
             // The observer will receive the list of UserData when it changes
             userList?.let {
                 // Assuming `User.newInstance` creates a new User fragment instance
-                supportFragmentManager.beginTransaction().apply {
+                val fragmentTransaction = supportFragmentManager.beginTransaction()
                     val fragmentList = mutableListOf<User>()
 
                     // Iterate through the userList and create a User fragment for each user
@@ -42,11 +42,11 @@ class Dashboard : AppCompatActivity() {
 
                     // Add all the User fragments to the container
                     for (i in fragmentList.indices) {
-                        add(R.id.user, fragmentList[i])
+                        fragmentTransaction.add(R.id.userList,fragmentList[i])
                     }
 
-                    commit()
-                }
+                    fragmentTransaction.commit()
+
             }
         }
 
