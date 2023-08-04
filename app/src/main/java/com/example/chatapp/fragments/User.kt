@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.chatapp.R
 import com.example.chatapp.databinding.FragmentUserBinding
@@ -16,22 +18,21 @@ import com.example.chatapp.viewmodels.UserViewModel
 class User : Fragment() {
 
     private lateinit var binding: FragmentUserBinding
-    private lateinit var userViewModel: UserViewModel
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = prepareView(inflater, container)
-        val userViewModel = prepareUserViewModel()
+        binding = FragmentUserBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
 
-        binding.userViewModel = userViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-
-
-        return view
+        prepareUserViewModel()
     }
 
 
@@ -41,12 +42,10 @@ class User : Fragment() {
     }
 
 
-    private fun prepareUserViewModel(): UserViewModel {
-        val userRepository = UserRepo()
-        return ViewModelProvider(
-            this,
-            UserViewModelFactory(userRepository)
-        ).get(UserViewModel::class.java)
+    fun prepareUserViewModel() {
+        val userRepo: UserRepo by lazy { UserRepo() }
+        val userViewModel: UserViewModel by activityViewModels  { UserViewModelFactory(userRepo) }
+        binding.userViewModel = userViewModel
     }
 
 

@@ -11,6 +11,11 @@ class UserViewModel(private val repository: UserRepo) : ViewModel() {
         get() = repository.userData
 
     init {
-        repository.getUserData()
+        repository.getUserData("Selina Gomez")
+    }
+
+
+    fun refreshUserData() {
+        repository.getUserData("Tester tester");
     }
 }

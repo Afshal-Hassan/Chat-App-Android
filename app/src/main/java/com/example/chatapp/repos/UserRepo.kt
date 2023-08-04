@@ -12,8 +12,8 @@ class UserRepo {
         get() = this.mutableUserData
 
 
-    fun getUserData() {
-        val data = UserData("Selina Gomez");
+    fun getUserData(name:String) {
+        val data = UserData(name);
         mutableUserData.postValue(data)
     }
 }
